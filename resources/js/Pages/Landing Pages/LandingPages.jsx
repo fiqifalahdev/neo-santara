@@ -1,8 +1,8 @@
 import React from 'react';
 
-const LandingPages = () => {
+const LandingPages = ({message}) => {
     return(
-        <div>Hallo</div>
+        <div>pesan ini berasal dari laravel : {message}</div>
     )
 }
 
