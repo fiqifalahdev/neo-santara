@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('password', 25);
             $table->string('profile_id', 25);
             $table->foreign('profile_id')->references('id')->on('profiles');
-            $table->foreignId('customer_id')->constrained('customers');
+            $table->integer('customer_id');
+            $table->foreign('customer_id')->references('id')->on('customers');
             $table->timestamps();
         });
     }

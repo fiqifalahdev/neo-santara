@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
+use App\Http\Resources\CustomerResource;
+use App\Models\Customer;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,12 +27,32 @@ use Inertia\Inertia;
 //     ]);
 // });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+/* 
+Login sama Register udah ada model, view, dan controller nya, jadi gausah bikin lagi
+tinggal modifikasi di view nya aja
+*/
 
 Route::get('/', function () {
     return Inertia::render('LandingPages');
+});
+
+Route::middleware('auth')->group(function () {
+    // Ketika udah login maka akan diarahkan ke dashboard
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+
+    // Route untuk login
+    Route::get('/login', function () {
+        return Inertia::render('Auth/Login');
+    })->name('login');
+
+    // Route untuk register
+    Route::get('/register', function () {
+        return Inertia::render('Auth/Register');
+    })->name('register');
+
+    Route::resource('/customers', CustomerController::class);
 });
 
 require __DIR__ . '/auth.php';

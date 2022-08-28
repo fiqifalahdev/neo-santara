@@ -17,7 +17,10 @@ class PppAccountFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "username" => fake()->userName(),
+            "password" => fake()->bothify("??-##"),
+            "profile_id" => fake()->numberBetween(0, 10),
+            "customer_id" => fake()->numberBetween(0, 10)
         ];
     }
 }

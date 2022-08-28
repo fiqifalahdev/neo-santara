@@ -14,4 +14,9 @@ class Customer extends Model
     {
         return $this->belongsTo(RouterCustomer::class);
     }
+
+    public function PppAccount()
+    {
+        $this->belongsTo(PppAccount::class);
+    }
 }

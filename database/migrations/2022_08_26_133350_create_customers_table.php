@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->id();
+            $table->integer("id")->primary();
             $table->string("name", 100);
-            $table->integer("nik");
-            $table->string("phone", 16)->unique("phone");
+            $table->string("nik");
+            $table->string("phone", 20)->unique("phone");
             $table->string("address", 255);
             $table->string("longitude", 21);
             $table->string('latitude', 21);
-            $table->foreignId('router_customer_id')->constrained('router_customers');
+            // $table->foreignId('router_customer_id')->constrained('router_customers');
             $table->timestamps();
         });
     }

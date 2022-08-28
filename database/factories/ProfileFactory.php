@@ -17,7 +17,10 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "id" => fake()->numerify("profile-###"),
+            "rate_limit" => fake()->ean13(),
+            "ip_address_list" => fake()->bothify("????-####-????-####"),
+            "ip_address" => fake()->bothify("???-###")
         ];
     }
 }
