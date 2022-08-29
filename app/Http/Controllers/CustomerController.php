@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\CustomerResource;
 use App\Models\Customer;
+use App\Models\PppAccount;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -16,10 +18,13 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = new CustomerResource(Customer::all());
-        return Inertia::render('Customers', [
+        // $customers = new CustomerResource(Customer::where("id", 146137226)->get());
+        $ppp = PppAccount::all();
+        // $profile = Profile::where("id", "profile-230")->get();
+        dd($ppp);
+        return Inertia::render('Dashboard', [
             'title' => 'Daftar Pelanggan',
-            'customer' => $customers
+            // 'customer' => $customers
         ]);
     }
 
