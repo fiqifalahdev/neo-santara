@@ -38,9 +38,9 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     // Ketika udah login maka akan diarahkan ke dashboard
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return Inertia::render('Dashboard');
+    // })->name('dashboard');
 
     // Route untuk login
     Route::get('/login', function () {
@@ -51,8 +51,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/register', function () {
         return Inertia::render('Auth/Register');
     })->name('register');
-
-    Route::resource('/customers', CustomerController::class);
 });
+// Route untuk menampilkan data Customers
+Route::resource('/customers', CustomerController::class)->name('index', "customers");
 
 require __DIR__ . '/auth.php';

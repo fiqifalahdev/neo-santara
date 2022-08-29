@@ -25,13 +25,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        // Customer::factory("10")->create();
+        // Customer::factory("50")->create();
         // Profile::factory("10")->create();
-        // PppAccount::factory()->create([
-        //     "username" => fake()->userName(),
-        //     "password" => "inipassword",
-        //     "profile_id" => "profile-020",
-        //     "customer_id" => 313341824
-        // ]);
+        PppAccount::factory()->create([
+            "username" => fake()->userName(),
+            "password" => "inipassword",
+            "profile_id" => "profile-062",
+            "customer_id" => 10188747
+        ]);
     }
 }

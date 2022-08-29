@@ -26,7 +26,7 @@ class CustomerFactory extends Factory
             "address" => fake()->address(),
             "longitude" => fake()->longitude(),
             "latitude" => fake()->latitude(),
-            // "router_customer_id" => mt_rand(1, 10),
+            // "router_customer_id" => mt_rand(1, 50),
         ];
     }
 }
